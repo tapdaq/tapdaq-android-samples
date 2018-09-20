@@ -1,0 +1,112 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
+    defaultConfig {
+        applicationId "com.sample.tapdaq.mediationsample"
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode 6
+        versionName "6.3.2"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            multiDexEnabled true
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            multiDexEnabled true
+            debuggable true
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        flatDir {
+            dirs 'libs'
+        }
+    }
+}
+
+repositories {
+    jcenter()
+    maven { url 'https://maven.fabric.io/public' }
+
+    //AdColony
+    maven { url  "https://adcolony.bintray.com/AdColony" }
+
+    //IronSource
+    maven { url "https://dl.bintray.com/ironsource-mobile/android-sdk" }
+
+    //MoPub
+    maven { url "https://s3.amazonaws.com/moat-sdk-builds" }
+    maven {
+        url 'https://maven.google.com/'
+        name 'Google'
+    }
+
+    //TapJoy
+    maven {
+        name "Tapjoy's maven repo"
+        url "https://tapjoy.bintray.com/maven"
+    }
+
+    //YouAppi
+    maven { url "http://repository.youappi.com/repository/release" }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    //Required by Tapdaq
+    implementation 'com.google.android.gms:play-services-ads:15.0.1'
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.google.code.gson:gson:2.8.2'
+    //Required for AppLovin
+    implementation 'com.applovin:applovin-sdk:8.0.1'
+    //Required for Facebook Audience Network
+    implementation 'com.facebook.android:audience-network-sdk:4.99.1'
+    //Required for AdColony
+    implementation 'com.adcolony:sdk:3.3.4'
+    implementation 'com.google.android.gms:play-services-gcm:15.0.1'
+    //Required for AdColony with Proguard
+    //Required for HyprMX
+    implementation 'com.hyprmx.android:HyprMX-SDK:4.3'
+    //Required for Ironsource
+    implementation 'com.ironsource.sdk:mediationsdk:6.7.9@jar'
+    //Required for InMobi
+    implementation 'com.inmobi.monetization:inmobi-ads:7.1.0'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    //Required for Kiip
+    implementation 'me.kiip.sdk:kiip:3.0.0'
+
+    //Required for TapJoy
+    implementation 'com.tapjoy:tapjoy-android-sdk:11.12.2@aar'
+    //Required for Vungle
+    implementation 'com.github.vungle:vungle-android-sdk:5.3.2'
+    implementation('com.mopub:mopub-sdk:5.0.0@aar') {
+        transitive = true
+    }
+    // For banners
+    implementation('com.mopub:mopub-sdk-banner:5.0.0@aar') {
+        transitive = true
+    }
+    // For interstitials
+    implementation('com.mopub:mopub-sdk-interstitial:5.0.0@aar') {
+        transitive = true
+    }
+    // For rewarded videos. This will automatically also include interstitials
+    implementation('com.mopub:mopub-sdk-rewardedvideo:5.0.0@aar') {
+        transitive = true
+    }
+    //Required for YouAppi
+    implementation 'com.youappi.sdk:youappi-sdk-android-moat:4.1.1'
+    //Required for ZPlay
+    implementation ('com.playableads:playableads:2.0.5')
+}
