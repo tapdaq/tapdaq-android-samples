@@ -6,11 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.tapdaq.adapters.tapdaq.TMNativeAd;
 import com.tapdaq.sdk.CreativeType;
-import com.tapdaq.sdk.TMNativeAd;
 import com.tapdaq.sdk.Tapdaq;
 import com.tapdaq.sdk.TapdaqConfig;
-import com.tapdaq.sdk.ads.TapdaqPlacement;
+import com.tapdaq.sdk.TapdaqPlacement;
 import com.tapdaq.sdk.helpers.TLog;
 import com.tapdaq.sdk.helpers.TLogLevel;
 import com.tapdaq.sdk.listeners.TMInitListener;

@@ -6,14 +6,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.tapdaq.adapters.tapdaq.moreapps.TMMoreAppsConfig;
+import com.tapdaq.adapters.tapdaq.moreapps.TMMoreAppsListener;
 import com.tapdaq.sdk.CreativeType;
 import com.tapdaq.sdk.Tapdaq;
 import com.tapdaq.sdk.TapdaqConfig;
-import com.tapdaq.sdk.ads.TapdaqPlacement;
+import com.tapdaq.sdk.TapdaqPlacement;
 import com.tapdaq.sdk.common.TMAdError;
+import com.tapdaq.sdk.listeners.TMAdListener;
 import com.tapdaq.sdk.listeners.TMInitListener;
-import com.tapdaq.sdk.moreapps.TMMoreAppsConfig;
-import com.tapdaq.sdk.moreapps.TMMoreAppsListener;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -95,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private class MoreAppsListener extends TMMoreAppsListener {
+    private class MoreAppsListener extends TMAdListener {
         @Override
         public void didLoad() {
             super.didLoad();

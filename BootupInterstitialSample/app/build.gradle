@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 27
-    buildToolsVersion "27.0.3"
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
     defaultConfig {
         applicationId "com.tapdaq.bootupinterstitialsample"
         minSdkVersion 16
         targetSdkVersion 26
         versionCode 6
-        versionName "6.3.2"
+        versionName "6.4.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -25,6 +25,11 @@ android {
     lintOptions {
         abortOnError false
     }
+
+    packagingOptions {
+        exclude 'R.txt'
+        exclude 'AndroidManifest.xml'
+    }
 }
 
 repositories {
@@ -38,36 +43,25 @@ repositories {
 
     //YouAppi
     maven { url "http://repository.youappi.com/repository/release" }
+
+    //Tapdaq SDK & Adapters
+    maven { url "http://android-sdk.tapdaq.com" }
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.google.android.gms:play-services-ads:15.0.1'
-    implementation 'com.android.support:appcompat-v7:27.1.1'
-    implementation 'com.android.support:support-v4:27.1.1'
-    implementation 'com.android.support:recyclerview-v7:27.1.1'
-    //MoPub/InMobi
-    implementation 'com.google.code.gson:gson:2.8.2'
-    implementation 'com.applovin:applovin-sdk:8.0.1'
-    implementation 'com.facebook.android:audience-network-sdk:4.99.1'
-    implementation 'com.inmobi.monetization:inmobi-ads:7.1.0'
-    implementation 'com.squareup.picasso:picasso:2.5.2'
-    //Required by InMobi
-    //MoPub
-    implementation('com.mopub:mopub-sdk:5.0.0@aar') {
-        transitive = true
-    }
-    // For banners
-    implementation('com.mopub:mopub-sdk-banner:5.0.0@aar') {
-        transitive = true
-    }
-    // For interstitials
-    implementation('com.mopub:mopub-sdk-interstitial:5.0.0@aar') {
-        transitive = true
-    }
-    // For rewarded videos. This will automatically also include interstitials
-    implementation('com.mopub:mopub-sdk-rewardedvideo:5.0.0@aar') {
-        transitive = true
-    }
-    implementation 'com.youappi.sdk:youappi-sdk-android-moat:4.1.1'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+
+    //Tapdaq
+    implementation 'com.tapdaq.sdk:Tapdaq-BaseSDK:6.4.0'
+
+    //Adapters - These will automatically pull ad network dependencies
+    implementation 'com.tapdaq.sdk:TapdaqAdMobAdapter:6.4.0'
+    implementation 'com.tapdaq.sdk:TapdaqAppLovinAdapter:6.4.0'
+    implementation 'com.tapdaq.sdk:TapdaqChartboostAdapter:6.4.0'
+    implementation 'com.tapdaq.sdk:TapdaqFANAdapter:6.4.0'
+    implementation 'com.tapdaq.sdk:TapdaqInmobiAdapter:6.4.0'
+    implementation 'com.tapdaq.sdk:TapdaqKiipAdapter:6.4.0'
+    implementation 'com.tapdaq.sdk:TapdaqMoPubAdapter:6.4.0'
+    implementation 'com.tapdaq.sdk:TapdaqYouAppiAdapter:6.4.0'
 }

@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.View;
 
 import com.tapdaq.sdk.*;
-import com.tapdaq.sdk.ads.*;
 import com.tapdaq.sdk.common.TMBannerAdSizes;
 import com.tapdaq.sdk.helpers.TLog;
 import com.tapdaq.sdk.helpers.TLogLevel;

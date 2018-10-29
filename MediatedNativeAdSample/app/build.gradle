@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
     defaultConfig {
         applicationId "com.tapdaq.mediatednativeadsample"
         minSdkVersion 14
-        targetSdkVersion 27
+        targetSdkVersion 28
         versionCode 6
-        versionName "6.3.2"
+        versionName "6.4.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -18,6 +18,11 @@ android {
     }
 }
 
+repositories {
+    //Tapdaq SDK & Adapters
+    maven { url "http://android-sdk.tapdaq.com" }
+}
+
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:27.1.1'
@@ -25,8 +30,13 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-    implementation 'com.google.code.gson:gson:2.8.2'
-    implementation 'com.google.android.gms:play-services-ads:15.0.1'
-    implementation 'com.applovin:applovin-sdk:8.0.1'
-    implementation 'com.facebook.android:audience-network-sdk:4.99.1'
+
+
+    //Tapdaq
+    implementation 'com.tapdaq.sdk:Tapdaq-BaseSDK:6.4.0'
+
+    //Adapters - These will automatically pull ad network dependencies
+    implementation 'com.tapdaq.sdk:TapdaqAdMobAdapter:6.4.0'
+    implementation 'com.tapdaq.sdk:TapdaqAppLovinAdapter:6.4.0'
+    implementation 'com.tapdaq.sdk:TapdaqFANAdapter:6.4.0'
 }

@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.util.Log;
 
 import com.tapdaq.sdk.Tapdaq;
-import com.tapdaq.sdk.ads.TapdaqPlacement;
+import com.tapdaq.sdk.TapdaqPlacement;
 import com.tapdaq.sdk.common.TMAdError;
 import com.tapdaq.sdk.listeners.TMAdListener;
 import com.tapdaq.sdk.listeners.TMInitListener;
