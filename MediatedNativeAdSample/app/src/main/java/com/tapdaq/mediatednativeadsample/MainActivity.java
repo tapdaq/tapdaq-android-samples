@@ -2,7 +2,13 @@ package com.tapdaq.mediatednativeadsample;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.tapdaq.sdk.CreativeType;
 import com.tapdaq.sdk.Tapdaq;
@@ -11,6 +17,7 @@ import com.tapdaq.sdk.TapdaqPlacement;
 import com.tapdaq.sdk.adnetworks.TDMediatedNativeAd;
 import com.tapdaq.sdk.adnetworks.TDMediatedNativeAdOptions;
 import com.tapdaq.sdk.common.TMAdError;
+import com.tapdaq.sdk.debug.TMDebugAdapter;
 import com.tapdaq.sdk.helpers.TLog;
 import com.tapdaq.sdk.helpers.TLogLevel;
 import com.tapdaq.sdk.listeners.TMAdListener;
@@ -18,41 +25,162 @@ import com.tapdaq.sdk.listeners.TMInitListener;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
+    private static String TAG = "TAPDAQ-SAMPLE";
+
+    private String mAppId = "";
+    private String mClientKey = "";
+
+    private TextView mPlacementTagTextView;
+
+    private TMDebugAdapter mLogListAdapter;
+
+    private Map<String, TDMediatedNativeAd> mAd = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        findViewById(R.id.load_btn).setOnClickListener(new OnClickLoadAd());
 
         TLog.setLoggingLevel(TLogLevel.DEBUG);
-        TapdaqConfig config = new TapdaqConfig();
-        List<TapdaqPlacement> enabledPlacements = new ArrayList<TapdaqPlacement>();
-        enabledPlacements.add(TapdaqPlacement.createPlacement(Arrays.asList(CreativeType.NATIVE), TapdaqPlacement.TDPTagDefault));
-        config.withPlacementTagSupport(enabledPlacements.toArray(new TapdaqPlacement[enabledPlacements.size()]));
 
-        Tapdaq.getInstance().initialize(this, "<APP_ID>", "<CLIENT_KEY>", config, new TMInitListener() {
+        //Get Show Buttons from layout
+        findViewById(R.id.init_btn).setOnClickListener(new ClickInitialise());
+        findViewById(R.id.show_debug_btn).setOnClickListener(new ClickShowDebug());
+
+        findViewById(R.id.load_btn).setOnClickListener(new ClickLoadAd());
+        findViewById(R.id.show_btn).setOnClickListener(new ClickShowAd());
+        findViewById(R.id.clear_btn).setOnClickListener(new ClickClearAd());
+
+        //Logger
+        mLogListAdapter = new TMDebugAdapter(this, new ArrayList<String>());
+        ((ListView)findViewById(R.id.log_listview)).setAdapter(mLogListAdapter);
+
+        //Get UI from layout
+        mPlacementTagTextView = findViewById(R.id.placement_tag_textview);
+        mPlacementTagTextView.addTextChangedListener(new TextWatcher() {
             @Override
-            public void didInitialise() {
-                super.didInitialise();
-                findViewById(R.id.load_btn).setEnabled(true);
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
             }
 
             @Override
-            public void didFailToInitialise(TMAdError error) {
-                super.didFailToInitialise(error);
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                updateView();
             }
         });
     }
 
-    private class OnClickLoadAd implements View.OnClickListener {
+    private String getPlacementTag() {
+        return mPlacementTagTextView.getText().toString();
+    }
+
+    private void updateView() {
+        if (mAd.containsKey(getPlacementTag())) {
+            findViewById(R.id.show_btn).setVisibility(View.VISIBLE);
+        } else {
+            findViewById(R.id.show_btn).setVisibility(View.GONE);
+        }
+    }
+
+    private class ClickInitialise implements View.OnClickListener
+    {
+        @Override
+        public void onClick(View view) {
+            //Set Placements & Ad Types
+            List<TapdaqPlacement> enabledPlacements = new ArrayList<>();
+            enabledPlacements.add(TapdaqPlacement.createPlacement(Arrays.asList(CreativeType.INTERSTITIAL_PORTRAIT, CreativeType.INTERSTITIAL_LANDSCAPE), TapdaqPlacement.TDPTagDefault));
+
+            //Configuration
+            TapdaqConfig config = new TapdaqConfig();
+            config.setAutoReloadAds(true);
+            config.withPlacementTagSupport(enabledPlacements.toArray(new TapdaqPlacement[enabledPlacements.size()]));
+
+            //Initialise app
+            mLogListAdapter.insert("Click Initialise", 0);
+            ((Button)findViewById(R.id.init_btn)).setText(R.string.initialising_label);
+            findViewById(R.id.init_btn).setEnabled(false);
+            Tapdaq.getInstance().initialize(MainActivity.this, mAppId, mClientKey, config, new InitListener());
+        }
+    }
+
+    private class ClickShowDebug implements View.OnClickListener
+    {
+        @Override
+        public void onClick(View view) {
+            /* Start Test Activity
+             * Params Activity (Current Activity)
+             */
+            Tapdaq.getInstance().startTestActivity(MainActivity.this);
+        }
+    }
+
+    private class ClickLoadAd implements View.OnClickListener {
         @Override
         public void onClick(View view) {
             TDMediatedNativeAdOptions options = new TDMediatedNativeAdOptions(); //optional param
-            Tapdaq.getInstance().loadMediatedNativeAd(MainActivity.this, TapdaqPlacement.TDPTagDefault, options, new AdListener());
+            Tapdaq.getInstance().loadMediatedNativeAd(MainActivity.this, getPlacementTag(), options, new AdListener());
+        }
+    }
+
+    private class ClickShowAd implements View.OnClickListener {
+        @Override
+        public void onClick(View view) {
+            NativeAdLayout adlayout = findViewById(R.id.native_ad);
+            adlayout.populate(mAd.get(getPlacementTag()));
+            mAd.remove(getPlacementTag());
+            findViewById(R.id.clear_btn).setVisibility(View.VISIBLE);
+            updateView();
+        }
+    }
+
+    private class ClickClearAd implements View.OnClickListener {
+        @Override
+        public void onClick(View view) {
+            NativeAdLayout adlayout = findViewById(R.id.native_ad);
+            adlayout.clear();
+            findViewById(R.id.clear_btn).setVisibility(View.GONE);
+        }
+    }
+
+    private class InitListener extends TMInitListener
+    {
+        @Override
+        public void didInitialise() {
+            super.didInitialise();
+            findViewById(R.id.init_btn).setVisibility(View.GONE);
+            findViewById(R.id.content_view).setVisibility(View.VISIBLE);
+            Log.i(TAG, "didInitialise");
+            mLogListAdapter.insert("didInitialise", 0);
+        }
+
+        @Override
+        public void didFailToInitialise(TMAdError error) {
+            super.didFailToInitialise(error);
+            ((Button)findViewById(R.id.init_btn)).setText(R.string.initialise_label);
+
+            String str = String.format(Locale.ENGLISH, "didFailToInitialise: %d - %s", error.getErrorCode(), error.getErrorMessage());
+
+            for (String key : error.getSubErrors().keySet()) {
+                TMAdError value = error.getSubErrors().get(key);
+                String subError = String.format(Locale.ENGLISH, "%s - %d: %s", key,  value.getErrorCode(), value.getErrorMessage());
+                str = str.concat("\n ");
+                str = str.concat(subError);
+            }
+
+            Log.i(TAG, str);
+            mLogListAdapter.insert(str, 0);
+            findViewById(R.id.init_btn).setEnabled(true);
         }
     }
 
@@ -60,23 +188,41 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void didLoad(TDMediatedNativeAd ad) {
             super.didLoad(ad);
-            NativeAdLayout adlayout = findViewById(R.id.native_ad);
-            adlayout.populate(ad);
-        }
-
-        @Override
-        public void didDisplay() {
-            super.didDisplay();
-        }
-
-        @Override
-        public void didClick() {
-            super.didClick();
+            mAd.put(getPlacementTag(), ad);
+            updateView();
+            Log.i(TAG, "didLoad");
+            mLogListAdapter.insert("didLoad", 0);
         }
 
         @Override
         public void didFailToLoad(TMAdError error) {
-            super.didFailToLoad(error);
+            updateView();
+
+            String str = String.format(Locale.ENGLISH, "didFailToLoad: %d - %s", error.getErrorCode(), error.getErrorMessage());
+
+            for (String key : error.getSubErrors().keySet()) {
+                TMAdError value = error.getSubErrors().get(key);
+                String subError = String.format(Locale.ENGLISH, "%s - %d: %s", key,  value.getErrorCode(), value.getErrorMessage());
+                str = str.concat("\n ");
+                str = str.concat(subError);
+            }
+
+            Log.i(TAG, str);
+            mLogListAdapter.insert(str, 0);
         }
+
+        @Override
+        public void didDisplay() {
+            Log.i(TAG, "didDisplay");
+            mLogListAdapter.insert("didDisplay", 0);
+        }
+
+        @Override
+        public void didClick() {
+            Log.i(TAG, "didClick");
+            mLogListAdapter.insert("didClick", 0);
+        }
+
+
     }
 }
