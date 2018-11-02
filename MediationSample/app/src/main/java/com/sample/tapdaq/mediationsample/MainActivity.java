@@ -40,8 +40,8 @@ import java.util.Locale;
  */
 
 public class MainActivity extends AppCompatActivity {
-    private String mAppId = "58a1879f24e637002e48d4d5";
-    private String mClientKey = "3564a57a-9391-485b-ac01-83efea9b0599";
+    private String mAppId = "";
+    private String mClientKey = "";
 
     private TMBannerAdView mBannerAd;
     private TextView mPlacementTagTextView;

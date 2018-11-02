@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">BootupInterstitialSample</string>
+
+    <string name="debugger_label">Debugger</string>
 </resources>
