@@ -82,6 +82,7 @@ dependencies {
     implementation 'com.tapdaq.sdk:TapdaqAppLovinAdapter:6.4.0'
     implementation 'com.tapdaq.sdk:TapdaqChartboostAdapter:6.4.0'
     implementation 'com.tapdaq.sdk:TapdaqFANAdapter:6.4.0'
+    implementation 'com.tapdaq.sdk:TapdaqHyprMXAdapter:6.4.0'
     implementation 'com.tapdaq.sdk:TapdaqInmobiAdapter:6.4.0'
 
     //Ironsource dependency requires explicit reference

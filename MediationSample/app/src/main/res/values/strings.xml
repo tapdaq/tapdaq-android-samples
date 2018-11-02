@@ -1,3 +1,35 @@
 <resources>
     <string name="app_name">MediationSample</string>
+
+    <string name="default_placement_tag">default</string>
+    <string name="placement_tag_lbl">Placement Tag</string>
+
+    <string name="initialise_label">Initialise</string>
+    <string name="initialising_label">Initialising</string>
+
+
+    <string name="load_label">Load</string>
+    <string name="load_banner">Load Banner</string>
+    <string name="destroy_banner">Destroy</string>
+
+    <string name="show_label">Show</string>
+
+    <string name="debugger_label">Debugger</string>
+
+    <string-array name="banner_types">
+        <item>Standard</item>
+        <item>Medium_Rect</item>
+        <item>Large</item>
+        <item>Full</item>
+        <item>Leaderboard</item>
+        <item>Smart</item>
+        <item>Skyscraper</item>
+    </string-array>
+
+    <string-array name="interstitial_types">
+        <item>static_interstitial</item>
+        <item>video_interstitial</item>
+        <item>rewarded_video_interstitial</item>
+        <item>offerwall</item>
+    </string-array>
 </resources>
