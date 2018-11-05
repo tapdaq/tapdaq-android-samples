@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">MoreAppsSample</string>
+
+    <string name="initialise_label">Initialise</string>
+    <string name="initialising_label">Initialising</string>
+
+    <string name="load_label">Load</string>
+    <string name="show_label">Show</string>
+
+    <string name="debugger_label">Debugger</string>
 </resources>
