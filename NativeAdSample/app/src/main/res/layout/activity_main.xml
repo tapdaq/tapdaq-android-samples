@@ -11,23 +11,105 @@
     tools:context="com.tapdaq.nativeadsample.MainActivity">
 
     <Button
-        android:id="@+id/load_native_btn"
-        android:layout_width="wrap_content"
+        android:id="@+id/init_btn"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Load"/>
+        android:layout_alignParentTop="true"
+        android:text="@string/initialise_label"/>
+
     <Button
-        android:id="@+id/show_native_btn"
+        android:id="@+id/show_debug_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/load_native_btn"
-        android:text="Show"/>
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:text="@string/debugger_label"/>
+
+    <ListView
+        android:id="@+id/log_listview"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"/>
+
     <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/load_native_btn">
-        <ImageView
-            android:id="@+id/native_image"
+        android:id="@+id/content_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/log_listview"
+        android:visibility="gone">
+        <TextView
+            android:id="@+id/placement_tag_lbl"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/placement_tag_textview"
+            android:layout_alignBottom="@id/placement_tag_textview"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:text="@string/placement_tag_lbl"/>
+
+        <EditText
+            android:id="@+id/placement_tag_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/placement_tag_lbl"
+            android:layout_toEndOf="@id/placement_tag_lbl"
+            android:text="@string/default_placement_tag"
+            android:inputType="text"
+            android:hint="@string/placement_tag_lbl" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/placement_tag_textview">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/load_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/load_label"/>
+
+                <Button
+                    android:id="@+id/show_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/load_btn"
+                    android:layout_toRightOf="@+id/load_btn"
+                    android:layout_toEndOf="@+id/load_btn"
+                    android:visibility="gone"
+                    android:text="@string/show_label"/>
+
+                <Button
+                    android:id="@+id/clear_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/load_btn"
+                    android:layout_toRightOf="@+id/load_btn"
+                    android:layout_toEndOf="@+id/load_btn"
+                    android:visibility="gone"
+                    android:text="@string/clear_label"/>
+
+                <RelativeLayout
+                    android:id="@+id/native_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/load_btn">
+                    <ImageView
+                        android:id="@+id/native_image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:id="@+id/native_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/native_image"/>
+                </RelativeLayout>
+            </RelativeLayout>
+        </ScrollView>
     </RelativeLayout>
 </RelativeLayout>
