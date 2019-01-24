@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 
-import com.tapdaq.sdk.CreativeType;
 import com.tapdaq.sdk.Tapdaq;
 import com.tapdaq.sdk.TapdaqConfig;
 import com.tapdaq.sdk.TapdaqPlacement;
@@ -17,8 +16,6 @@ import com.tapdaq.sdk.listeners.TMInitListener;
 import com.tapdaq.sdk.model.rewards.TDReward;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
@@ -45,11 +42,6 @@ public class MainActivity extends AppCompatActivity {
 
         //Initialise Tapdaq
         TapdaqConfig config = new TapdaqConfig();
-
-        List<TapdaqPlacement> enabledPlacements = new ArrayList<>();
-        enabledPlacements.add(TapdaqPlacement.createPlacement(Arrays.asList(CreativeType.INTERSTITIAL_PORTRAIT, CreativeType.INTERSTITIAL_LANDSCAPE), TapdaqPlacement.TDPTagDefault));
-
-        config.withPlacementTagSupport(enabledPlacements.toArray(new TapdaqPlacement[enabledPlacements.size()]));
 
         mLogListAdapter.insert("Initialise Tapdaq", 0);
         Tapdaq.getInstance().initialize(this, mAppId, mClientKey, config, new InitListener());

@@ -10,10 +10,8 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.tapdaq.sdk.CreativeType;
 import com.tapdaq.sdk.Tapdaq;
 import com.tapdaq.sdk.TapdaqConfig;
-import com.tapdaq.sdk.TapdaqPlacement;
 import com.tapdaq.sdk.adnetworks.TDMediatedNativeAd;
 import com.tapdaq.sdk.adnetworks.TDMediatedNativeAdOptions;
 import com.tapdaq.sdk.common.TMAdError;
@@ -24,9 +22,7 @@ import com.tapdaq.sdk.listeners.TMAdListener;
 import com.tapdaq.sdk.listeners.TMInitListener;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -97,14 +93,9 @@ public class MainActivity extends AppCompatActivity {
     {
         @Override
         public void onClick(View view) {
-            //Set Placements & Ad Types
-            List<TapdaqPlacement> enabledPlacements = new ArrayList<>();
-            enabledPlacements.add(TapdaqPlacement.createPlacement(Arrays.asList(CreativeType.INTERSTITIAL_PORTRAIT, CreativeType.INTERSTITIAL_LANDSCAPE), TapdaqPlacement.TDPTagDefault));
-
             //Configuration
             TapdaqConfig config = new TapdaqConfig();
             config.setAutoReloadAds(true);
-            config.withPlacementTagSupport(enabledPlacements.toArray(new TapdaqPlacement[enabledPlacements.size()]));
 
             //Initialise app
             mLogListAdapter.insert("Click Initialise", 0);

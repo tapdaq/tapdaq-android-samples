@@ -25,8 +25,6 @@ import com.tapdaq.sdk.model.TMAdSize;
 import com.tapdaq.sdk.model.rewards.TDReward;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Locale;
 
 /*
@@ -139,14 +137,9 @@ public class MainActivity extends AppCompatActivity {
     {
         @Override
         public void onClick(View view) {
-            //Set Placements & Ad Types
-            List<TapdaqPlacement> enabledPlacements = new ArrayList<>();
-            enabledPlacements.add(TapdaqPlacement.createPlacement(Arrays.asList(CreativeType.INTERSTITIAL_PORTRAIT, CreativeType.INTERSTITIAL_LANDSCAPE), TapdaqPlacement.TDPTagDefault));
-
             //Configuration
             TapdaqConfig config = new TapdaqConfig();
             config.setAutoReloadAds(true);
-            config.withPlacementTagSupport(enabledPlacements.toArray(new TapdaqPlacement[enabledPlacements.size()]));
 
             //Initialise app
             mLogListAdapter.insert("Click Initialise", 0);

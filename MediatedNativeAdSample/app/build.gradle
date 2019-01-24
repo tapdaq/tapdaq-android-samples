@@ -6,8 +6,8 @@ android {
         applicationId "com.tapdaq.mediatednativeadsample"
         minSdkVersion 14
         targetSdkVersion 28
-        versionCode 6
-        versionName "6.4.0"
+        versionCode 7
+        versionName "7.0.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -33,10 +33,10 @@ dependencies {
 
 
     //Tapdaq
-    implementation 'com.tapdaq.sdk:Tapdaq-BaseSDK:6.4.0'
+    implementation 'com.tapdaq.sdk:Tapdaq-BaseSDK:7.0.0'
 
     //Adapters - These will automatically pull ad network dependencies
-    implementation 'com.tapdaq.sdk:TapdaqAdMobAdapter:6.4.0'
-    implementation 'com.tapdaq.sdk:TapdaqAppLovinAdapter:6.4.0'
-    implementation 'com.tapdaq.sdk:TapdaqFANAdapter:6.4.0'
+    implementation 'com.tapdaq.sdk:TapdaqAdMobAdapter:7.0.0'
+    implementation 'com.tapdaq.sdk:TapdaqAppLovinAdapter:7.0.0'
+    implementation 'com.tapdaq.sdk:TapdaqFANAdapter:7.0.0'
 }
