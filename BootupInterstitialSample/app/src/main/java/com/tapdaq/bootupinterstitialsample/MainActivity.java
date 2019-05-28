@@ -76,10 +76,11 @@ public class MainActivity extends AppCompatActivity {
             String str = String.format(Locale.ENGLISH, "didFailToInitialise: %d - %s", error.getErrorCode(), error.getErrorMessage());
 
             for (String key : error.getSubErrors().keySet()) {
-                TMAdError value = error.getSubErrors().get(key);
-                String subError = String.format(Locale.ENGLISH, "%s - %d: %s", key,  value.getErrorCode(), value.getErrorMessage());
-                str = str.concat("\n ");
-                str = str.concat(subError);
+                for (TMAdError value : error.getSubErrors().get(key)) {
+                    String subError = String.format(Locale.ENGLISH, "%s - %d: %s", key,  value.getErrorCode(), value.getErrorMessage());
+                    str = str.concat("\n ");
+                    str = str.concat(subError);
+                }
             }
 
             Log.i(TAG, str);
@@ -102,10 +103,11 @@ public class MainActivity extends AppCompatActivity {
             String str = String.format(Locale.ENGLISH, "didFailToLoad: %d - %s", error.getErrorCode(), error.getErrorMessage());
 
             for (String key : error.getSubErrors().keySet()) {
-                TMAdError value = error.getSubErrors().get(key);
-                String subError = String.format(Locale.ENGLISH, "%s - %d: %s", key,  value.getErrorCode(), value.getErrorMessage());
-                str = str.concat("\n ");
-                str = str.concat(subError);
+                for (TMAdError value : error.getSubErrors().get(key)) {
+                    String subError = String.format(Locale.ENGLISH, "%s - %d: %s", key,  value.getErrorCode(), value.getErrorMessage());
+                    str = str.concat("\n ");
+                    str = str.concat(subError);
+                }
             }
 
             Log.i(TAG, str);
