@@ -30,6 +30,5 @@
         <item>static_interstitial</item>
         <item>video_interstitial</item>
         <item>rewarded_video_interstitial</item>
-        <item>offerwall</item>
     </string-array>
 </resources>
