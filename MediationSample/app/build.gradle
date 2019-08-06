@@ -54,9 +54,6 @@ repositories {
     //IronSource
     maven { url "https://dl.bintray.com/ironsource-mobile/android-sdk" }
 
-    //MoPub
-    maven { url "https://s3.amazonaws.com/moat-sdk-builds" }
-
     //TapJoy
     maven {
         name "Tapjoy's maven repo"
@@ -83,8 +80,6 @@ dependencies {
     implementation 'com.tapdaq.sdk:TapdaqInmobiAdapter:7.2.1'
     implementation 'com.tapdaq.sdk:TapdaqIronsourceAdapter:7.2.1'
     implementation 'com.tapdaq.sdk:TapdaqKiipAdapter:7.2.1'
-    implementation 'com.tapdaq.sdk:TapdaqMoPubAdapter:7.2.1'
-    implementation 'com.tapdaq.sdk:TapdaqReceptivAdapter:7.2.1'
     implementation 'com.tapdaq.sdk:TapdaqTapjoyAdapter:7.2.1'
     implementation 'com.tapdaq.sdk:TapdaqUnityAdsAdapter:7.2.1'
     implementation 'com.tapdaq.sdk:TapdaqVungleAdapter:7.2.1'

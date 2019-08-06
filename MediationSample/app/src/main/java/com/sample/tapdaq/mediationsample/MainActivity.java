@@ -121,9 +121,6 @@ public class MainActivity extends AppCompatActivity {
             case TMAdType.REWARD_INTERSTITIAL:
                 isReady = Tapdaq.getInstance().isRewardedVideoReady(this, tag);
                 break;
-            case TMAdType.OFFERWALL:
-                isReady = Tapdaq.getInstance().isOfferwallReady(this);
-                break;
         }
 
         if (isReady) {
@@ -138,8 +135,8 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             //Configuration
-            TapdaqConfig config = new TapdaqConfig();
-            config.setAutoReloadAds(true);
+            TapdaqConfig config = Tapdaq.getInstance().config();
+            //Setting config options here will override any settings changed in the debugger before initialisation
 
             //Initialise app
             mLogListAdapter.insert("Click Initialise", 0);
@@ -183,11 +180,6 @@ public class MainActivity extends AppCompatActivity {
                     Tapdaq.getInstance().loadRewardedVideo(MainActivity.this, getPlacementTag(), new AdListener(type));
                     break;
                 }
-                case TMAdType.OFFERWALL:
-                {
-                    Tapdaq.getInstance().loadOfferwall(MainActivity.this, new AdListener(type));
-                    break;
-                }
                 default:
                     break;
             }
@@ -223,15 +215,6 @@ public class MainActivity extends AppCompatActivity {
                 {
                     if (Tapdaq.getInstance().isRewardedVideoReady(MainActivity.this, getPlacementTag())) {
                         Tapdaq.getInstance().showRewardedVideo(MainActivity.this, getPlacementTag(), new AdListener(type));
-                    } else {
-                        Log.i("MEDIATION-SAMPLE", "Rewarded ad not available, call Load first");
-                    }
-                    break;
-                }
-                case TMAdType.OFFERWALL:
-                {
-                    if (Tapdaq.getInstance().isOfferwallReady(MainActivity.this)) {
-                        Tapdaq.getInstance().showOfferwall(MainActivity.this, new AdListener(type));
                     } else {
                         Log.i("MEDIATION-SAMPLE", "Rewarded ad not available, call Load first");
                     }
