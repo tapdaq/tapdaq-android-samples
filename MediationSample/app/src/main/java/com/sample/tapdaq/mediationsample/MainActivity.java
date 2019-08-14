@@ -13,6 +13,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.tapdaq.sdk.*;
+import com.tapdaq.sdk.adnetworks.TMMediationNetworks;
 import com.tapdaq.sdk.common.TMAdError;
 import com.tapdaq.sdk.common.TMAdType;
 import com.tapdaq.sdk.common.TMBannerAdSizes;
@@ -25,6 +26,7 @@ import com.tapdaq.sdk.model.TMAdSize;
 import com.tapdaq.sdk.model.rewards.TDReward;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Locale;
 
 /*
@@ -137,6 +139,8 @@ public class MainActivity extends AppCompatActivity {
             //Configuration
             TapdaqConfig config = Tapdaq.getInstance().config();
             //Setting config options here will override any settings changed in the debugger before initialisation
+            config.registerTestDevices(TMMediationNetworks.AD_MOB, Arrays.asList("<INSERT_TEST_DEVICE_ID>"));
+            config.registerTestDevices(TMMediationNetworks.FACEBOOK, Arrays.asList("<INSERT_TEST_DEVICE_ID>"));
 
             //Initialise app
             mLogListAdapter.insert("Click Initialise", 0);
