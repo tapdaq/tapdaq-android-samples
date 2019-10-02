@@ -48,13 +48,8 @@ repositories {
     jcenter()
 
     //Tapdaq SDK & Adapters
-    // Production Repo
-//    maven { url "http://android-sdk.tapdaq.com" }
-
-    // Staging Repo
-    maven { url "https://tapdaq-android-sdk.s3.eu-west-2.amazonaws.com/release/" }
-
-
+    maven { url "http://android-sdk.tapdaq.com" }
+    
     //AdColony
     maven { url  "https://adcolony.bintray.com/AdColony" }
 
