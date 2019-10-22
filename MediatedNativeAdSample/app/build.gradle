@@ -7,7 +7,7 @@ android {
         minSdkVersion 16
         targetSdkVersion 29
         versionCode 7
-        versionName "7.3.1"
+        versionName "7.3.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -28,10 +28,10 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:28.0.0'
 
     //Tapdaq
-    implementation 'com.tapdaq.sdk:Tapdaq-BaseSDK:7.3.1'
+    implementation 'com.tapdaq.sdk:Tapdaq-BaseSDK:7.3.2'
 
     //Adapters - These will automatically pull ad network dependencies
-    implementation 'com.tapdaq.sdk:TapdaqAdMobAdapter:7.3.1'
-    implementation 'com.tapdaq.sdk:TapdaqAppLovinAdapter:7.3.1'
-    implementation 'com.tapdaq.sdk:TapdaqFANAdapter:7.3.1'
+    implementation 'com.tapdaq.sdk:TapdaqAdMobAdapter:7.3.2'
+    implementation 'com.tapdaq.sdk:TapdaqAppLovinAdapter:7.3.2'
+    implementation 'com.tapdaq.sdk:TapdaqFANAdapter:7.3.2'
 }
