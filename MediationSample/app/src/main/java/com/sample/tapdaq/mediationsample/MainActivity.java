@@ -1,7 +1,7 @@
 package com.sample.tapdaq.mediationsample;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -40,8 +40,8 @@ import java.util.Locale;
  */
 
 public class MainActivity extends AppCompatActivity {
-    private String mAppId = "";
-    private String mClientKey = "";
+    private String mAppId = "58a1879f24e637002e48d4d5";
+    private String mClientKey = "3564a57a-9391-485b-ac01-83efea9b0599";
 
     private TMBannerAdView mBannerAd;
     private TextView mPlacementTagTextView;
