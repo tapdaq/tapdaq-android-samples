@@ -8,7 +8,7 @@ android {
         minSdkVersion 16
         targetSdkVersion 29
         versionCode 7
-        versionName "7.5.0-rc1"
+        versionName "7.5.0-rc3"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -77,20 +77,20 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.1.0'
 
     //Tapdaq
-    implementation 'com.tapdaq.sdk:Tapdaq-BaseSDK:7.5.0-rc1'
+    implementation 'com.tapdaq.sdk:Tapdaq-BaseSDK:7.5.0-rc3'
     //Adapters - These will automatically pull ad network dependencies
-    implementation 'com.tapdaq.sdk:TapdaqAdColonyAdapter:7.5.0-rc1'
-    implementation 'com.tapdaq.sdk:TapdaqAdMobAdapter:7.5.0-rc1'
-    implementation 'com.tapdaq.sdk:TapdaqAppLovinAdapter:7.5.0-rc1'
-    implementation 'com.tapdaq.sdk:TapdaqChartboostAdapter:7.5.0-rc1'
-    implementation 'com.tapdaq.sdk:TapdaqFANAdapter:7.5.0-rc1'
-    implementation 'com.tapdaq.sdk:TapdaqInmobiAdapter:7.5.0-rc1'
-    implementation 'com.tapdaq.sdk:TapdaqIronsourceAdapter:7.5.0-rc1'
-    implementation 'com.tapdaq.sdk:TapdaqMaioAdapter:7.5.0-rc1'
-    implementation 'com.tapdaq.sdk:TapdaqMintegralAdapter:7.5.0-rc1'
-    implementation 'com.tapdaq.sdk:TapdaqTapjoyAdapter:7.5.0-rc1'
-    implementation 'com.tapdaq.sdk:TapdaqUnityAdsAdapter:7.5.0-rc1'
-    implementation 'com.tapdaq.sdk:TapdaqVungleAdapter:7.5.0-rc1'
-    implementation 'com.tapdaq.sdk:TapdaqYouAppiAdapter:7.5.0-rc1'
-    implementation 'com.tapdaq.sdk:TapdaqZPlayAdapter:7.5.0-rc1'
+    implementation 'com.tapdaq.sdk:TapdaqAdColonyAdapter:7.5.0-rc3'
+    implementation 'com.tapdaq.sdk:TapdaqAdMobAdapter:7.5.0-rc3'
+    implementation 'com.tapdaq.sdk:TapdaqAppLovinAdapter:7.5.0-rc3'
+    implementation 'com.tapdaq.sdk:TapdaqChartboostAdapter:7.5.0-rc3'
+    implementation 'com.tapdaq.sdk:TapdaqFANAdapter:7.5.0-rc3'
+    implementation 'com.tapdaq.sdk:TapdaqInmobiAdapter:7.5.0-rc3'
+    implementation 'com.tapdaq.sdk:TapdaqIronsourceAdapter:7.5.0-rc3'
+    implementation 'com.tapdaq.sdk:TapdaqMaioAdapter:7.5.0-rc3'
+    implementation 'com.tapdaq.sdk:TapdaqMintegralAdapter:7.5.0-rc3'
+    implementation 'com.tapdaq.sdk:TapdaqTapjoyAdapter:7.5.0-rc3'
+    implementation 'com.tapdaq.sdk:TapdaqUnityAdsAdapter:7.5.0-rc3'
+    implementation 'com.tapdaq.sdk:TapdaqVungleAdapter:7.5.0-rc3'
+    implementation 'com.tapdaq.sdk:TapdaqYouAppiAdapter:7.5.0-rc3'
+    implementation 'com.tapdaq.sdk:TapdaqZPlayAdapter:7.5.0-rc3'
 }
