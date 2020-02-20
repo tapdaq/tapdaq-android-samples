@@ -8,7 +8,7 @@ android {
         minSdkVersion 16
         targetSdkVersion 29
         versionCode 7
-        versionName "7.4.3"
+        versionName "7.5.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -52,11 +52,11 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'androidx.appcompat:appcompat:1.0.0'
     //Tapdaq
-    implementation 'com.tapdaq.sdk:Tapdaq-BaseSDK:7.4.3'
+    implementation 'com.tapdaq.sdk:Tapdaq-BaseSDK:7.5.0'
     //Adapters - These will automatically pull ad network dependencies
-    implementation 'com.tapdaq.sdk:TapdaqAdMobAdapter:7.4.3'
-    implementation 'com.tapdaq.sdk:TapdaqAppLovinAdapter:7.4.3'
-    implementation 'com.tapdaq.sdk:TapdaqChartboostAdapter:7.4.3'
-    implementation 'com.tapdaq.sdk:TapdaqInmobiAdapter:7.4.3'
-    implementation 'com.tapdaq.sdk:TapdaqYouAppiAdapter:7.4.3'
+    implementation 'com.tapdaq.sdk:TapdaqAdMobAdapter:7.5.0'
+    implementation 'com.tapdaq.sdk:TapdaqAppLovinAdapter:7.5.0'
+    implementation 'com.tapdaq.sdk:TapdaqChartboostAdapter:7.5.0'
+    implementation 'com.tapdaq.sdk:TapdaqInmobiAdapter:7.5.0'
+    implementation 'com.tapdaq.sdk:TapdaqYouAppiAdapter:7.5.0'
 }
