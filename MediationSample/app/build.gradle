@@ -25,6 +25,12 @@ android {
         }
     }
 
+    // Required for Chartboost 8
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
     packagingOptions {
         exclude 'R.txt'
         exclude 'AndroidManifest.xml'
