@@ -8,7 +8,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 7
-        versionName "7.6.0"
+        versionName "7.7.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -54,7 +54,8 @@ repositories {
     jcenter()
 
     //Tapdaq SDK & Adapters
-    maven { url "http://android-sdk.tapdaq.com" }
+//    maven { url "http://android-sdk.tapdaq.com" }
+    maven { url "https://tapdaq-android-sdk.s3.eu-west-2.amazonaws.com/release/" }
 
     //AdColony
     maven { url  "https://adcolony.bintray.com/AdColony" }
@@ -85,20 +86,20 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.1.0'
 
     //Tapdaq
-    implementation 'com.tapdaq.sdk:Tapdaq-BaseSDK:7.6.0'
+    implementation 'com.tapdaq.sdk:Tapdaq-BaseSDK:7.7.0'
     //Adapters - These will automatically pull ad network dependencies
-    implementation 'com.tapdaq.sdk:TapdaqAdColonyAdapter:7.6.0'
-    implementation 'com.tapdaq.sdk:TapdaqAdMobAdapter:7.6.0'
-    implementation 'com.tapdaq.sdk:TapdaqAppLovinAdapter:7.6.0'
-    implementation 'com.tapdaq.sdk:TapdaqChartboostAdapter:7.6.0'
-    implementation 'com.tapdaq.sdk:TapdaqFANAdapter:7.6.0'
-    implementation 'com.tapdaq.sdk:TapdaqInmobiAdapter:7.6.0'
-    implementation 'com.tapdaq.sdk:TapdaqIronsourceAdapter:7.6.0'
-    implementation 'com.tapdaq.sdk:TapdaqMaioAdapter:7.6.0'
-    implementation 'com.tapdaq.sdk:TapdaqMintegralAdapter:7.6.0'
-    implementation 'com.tapdaq.sdk:TapdaqTapjoyAdapter:7.6.0'
-    implementation 'com.tapdaq.sdk:TapdaqUnityAdsAdapter:7.6.0'
-    implementation 'com.tapdaq.sdk:TapdaqVungleAdapter:7.6.0'
-    implementation 'com.tapdaq.sdk:TapdaqYouAppiAdapter:7.6.0'
-    implementation 'com.tapdaq.sdk:TapdaqZPlayAdapter:7.6.0'
+    implementation 'com.tapdaq.sdk:TapdaqAdColonyAdapter:7.7.0'
+    implementation 'com.tapdaq.sdk:TapdaqAdMobAdapter:7.7.0'
+    implementation 'com.tapdaq.sdk:TapdaqAppLovinAdapter:7.7.0'
+    implementation 'com.tapdaq.sdk:TapdaqChartboostAdapter:7.7.0'
+    implementation 'com.tapdaq.sdk:TapdaqFANAdapter:7.7.0'
+    implementation 'com.tapdaq.sdk:TapdaqInmobiAdapter:7.7.0'
+    implementation 'com.tapdaq.sdk:TapdaqIronsourceAdapter:7.7.0'
+    implementation 'com.tapdaq.sdk:TapdaqMaioAdapter:7.7.0'
+    implementation 'com.tapdaq.sdk:TapdaqMintegralAdapter:7.7.0'
+    implementation 'com.tapdaq.sdk:TapdaqTapjoyAdapter:7.7.0'
+    implementation 'com.tapdaq.sdk:TapdaqUnityAdsAdapter:7.7.0'
+    implementation 'com.tapdaq.sdk:TapdaqVungleAdapter:7.7.0'
+    implementation 'com.tapdaq.sdk:TapdaqYouAppiAdapter:7.7.0'
+    implementation 'com.tapdaq.sdk:TapdaqZPlayAdapter:7.7.0'
 }
