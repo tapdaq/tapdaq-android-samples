@@ -51,8 +51,7 @@ repositories {
     jcenter()
 
     //Tapdaq SDK & Adapters
-//    maven { url "http://android-sdk.tapdaq.com" }
-    maven { url "https://tapdaq-android-sdk.s3.eu-west-2.amazonaws.com/release/" }
+    maven { url "http://android-sdk.tapdaq.com" }
 
     //AdColony
     maven { url  "https://adcolony.bintray.com/AdColony" }
