@@ -48,7 +48,7 @@ repositories {
     maven { url "http://repository.youappi.com/repository/release" }
 
     //Tapdaq SDK & Adapters
-    maven { url "http://android-sdk.tapdaq.com" }
+    maven { url "https://android-sdk.tapdaq.com" }
 }
 
 dependencies {
