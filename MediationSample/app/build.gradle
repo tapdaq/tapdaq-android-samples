@@ -8,7 +8,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 7
-        versionName "7.8.2"
+        versionName "7.8.3"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -51,7 +51,8 @@ repositories {
     jcenter()
 
     //Tapdaq SDK & Adapters
-    maven { url "https://android-sdk.tapdaq.com" }
+    maven { url "https://tapdaq-android-sdk.s3.eu-west-2.amazonaws.com/release/" }
+//    maven { url "https://android-sdk.tapdaq.com" }
 
     //AdColony
     maven { url  "https://adcolony.bintray.com/AdColony" }
@@ -82,18 +83,18 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
 
     //Tapdaq
-    implementation 'com.tapdaq.sdk:Tapdaq-BaseSDK:7.8.2'
+    implementation 'com.tapdaq.sdk:Tapdaq-BaseSDK:7.8.3'
     //Adapters - These will automatically pull ad network dependencies
-    implementation 'com.tapdaq.sdk:TapdaqAdColonyAdapter:7.8.2'
-    implementation 'com.tapdaq.sdk:TapdaqAdMobAdapter:7.8.2'
-    implementation 'com.tapdaq.sdk:TapdaqAppLovinAdapter:7.8.2'
-    implementation 'com.tapdaq.sdk:TapdaqChartboostAdapter:7.8.2'
-    implementation 'com.tapdaq.sdk:TapdaqFANAdapter:7.8.2'
-    implementation 'com.tapdaq.sdk:TapdaqInmobiAdapter:7.8.2'
-    implementation 'com.tapdaq.sdk:TapdaqIronsourceAdapter:7.8.2'
-    implementation 'com.tapdaq.sdk:TapdaqMaioAdapter:7.8.2'
-    implementation 'com.tapdaq.sdk:TapdaqTapjoyAdapter:7.8.2'
-    implementation 'com.tapdaq.sdk:TapdaqUnityAdsAdapter:7.8.2'
-    implementation 'com.tapdaq.sdk:TapdaqVungleAdapter:7.8.2'
-    implementation 'com.tapdaq.sdk:TapdaqYouAppiAdapter:7.8.2'
+    implementation 'com.tapdaq.sdk:TapdaqAdColonyAdapter:7.8.3'
+    implementation 'com.tapdaq.sdk:TapdaqAdMobAdapter:7.8.3'
+    implementation 'com.tapdaq.sdk:TapdaqAppLovinAdapter:7.8.3'
+    implementation 'com.tapdaq.sdk:TapdaqChartboostAdapter:7.8.3'
+    implementation 'com.tapdaq.sdk:TapdaqFANAdapter:7.8.3'
+    implementation 'com.tapdaq.sdk:TapdaqInmobiAdapter:7.8.3'
+    implementation 'com.tapdaq.sdk:TapdaqIronsourceAdapter:7.8.3'
+    implementation 'com.tapdaq.sdk:TapdaqMaioAdapter:7.8.3'
+    implementation 'com.tapdaq.sdk:TapdaqTapjoyAdapter:7.8.3'
+    implementation 'com.tapdaq.sdk:TapdaqUnityAdsAdapter:7.8.3'
+    implementation 'com.tapdaq.sdk:TapdaqVungleAdapter:7.8.3'
+    implementation 'com.tapdaq.sdk:TapdaqYouAppiAdapter:7.8.3'
 }
